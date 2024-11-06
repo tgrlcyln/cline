@@ -45,23 +45,15 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "claude-dev-ActivityBar",
-          "title": "Cline",
-          "icon": "$(robot)"
+    "configuration": {
+      "title": "Cline",
+      "properties": {
+        "cline.messageLogging.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable logging of API messages"
         }
-      ]
-    },
-    "views": {
-      "claude-dev-ActivityBar": [
-        {
-          "type": "webview",
-          "id": "claude-dev.SidebarProvider",
-          "name": ""
-        }
-      ]
+      }
     },
     "commands": [
       {
@@ -88,6 +80,12 @@
         "command": "cline.openInNewTab",
         "title": "Open In New Tab",
         "category": "Cline"
+      },
+      {
+        "command": "cline.openMessageLogs",
+        "title": "Open Message Logs",
+        "category": "Cline",
+        "icon": "$(output)"
       }
     ],
     "menus": {
@@ -111,6 +109,30 @@
           "command": "cline.settingsButtonClicked",
           "group": "navigation@4",
           "when": "view == claude-dev.SidebarProvider"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "cline.openMessageLogs",
+          "when": "cline.messageLogging.enabled"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "claude-dev-ActivityBar",
+          "title": "Cline",
+          "icon": "$(robot)"
+        }
+      ]
+    },
+    "views": {
+      "claude-dev-ActivityBar": [
+        {
+          "type": "webview",
+          "id": "claude-dev.SidebarProvider",
+          "name": ""
         }
       ]
     }

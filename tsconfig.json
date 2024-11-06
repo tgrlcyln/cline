@@ -1,25 +1,33 @@
 {
 	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES2022",
+		"outDir": "out",
+		"lib": ["ES2022"],
+		"sourceMap": true,
+		"rootDir": "src",
+		"strict": true,
+		"moduleResolution": "node",
 		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"noImplicitAny": false,  // Allow implicit any types
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"noUnusedLocals": false,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
-		"isolatedModules": true,
-		"lib": ["es2022", "esnext.disposable", "DOM"],
-		"module": "esnext",
-		"moduleResolution": "Bundler",
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitOverride": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": false,
-		"resolveJsonModule": true,
-		"rootDir": ".",
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-		"target": "es2022",
 		"useDefineForClassFields": true,
-		"useUnknownInCatchVariables": false
+		"isolatedModules": true,
+		"resolveJsonModule": true
 	},
-	"include": ["src/**/*", "scripts/**/*"],
-	"exclude": ["node_modules", ".vscode-test", "webview-ui"]
+	"exclude": [
+		"node_modules",
+		".vscode-test",
+		"webview-ui"
+	],
+	"include": [
+		"src/**/*"
+	]
 }
