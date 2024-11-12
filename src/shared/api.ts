@@ -71,6 +71,7 @@ export const anthropicModels = {
 		maxTokens: 8192,
 		contextWindow: 200_000,
 		supportsImages: false,
+		supportsComputerUse: true, // Haiku için bilgisayar kontrolünü etkinleştirdik
 		supportsPromptCache: true,
 		inputPrice: 1.0,
 		outputPrice: 5.0,
@@ -117,6 +118,7 @@ export const bedrockModels = {
 		maxTokens: 8192,
 		contextWindow: 200_000,
 		supportsImages: false,
+		supportsComputerUse: true, // Bedrock Haiku için de bilgisayar kontrolünü etkinleştirdik
 		supportsPromptCache: false,
 		inputPrice: 1.0,
 		outputPrice: 5.0,
@@ -198,6 +200,7 @@ export const vertexModels = {
 		maxTokens: 8192,
 		contextWindow: 200_000,
 		supportsImages: false,
+		supportsComputerUse: true, // Vertex Haiku için de bilgisayar kontrolünü etkinleştirdik
 		supportsPromptCache: false,
 		inputPrice: 1.0,
 		outputPrice: 5.0,
