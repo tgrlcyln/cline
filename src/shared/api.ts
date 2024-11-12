@@ -43,7 +43,7 @@ export interface ModelInfo {
 	contextWindow?: number
 	supportsImages?: boolean
 	supportsComputerUse?: boolean
-	supportsPromptCache: boolean // this value is hardcoded for now
+	supportsPromptCache: boolean
 	inputPrice?: number
 	outputPrice?: number
 	cacheWritesPrice?: number
@@ -62,16 +62,16 @@ export const anthropicModels = {
 		supportsImages: true,
 		supportsComputerUse: true,
 		supportsPromptCache: true,
-		inputPrice: 3.0, // $3 per million input tokens
-		outputPrice: 15.0, // $15 per million output tokens
-		cacheWritesPrice: 3.75, // $3.75 per million tokens
-		cacheReadsPrice: 0.3, // $0.30 per million tokens
+		inputPrice: 3.0,
+		outputPrice: 15.0,
+		cacheWritesPrice: 3.75,
+		cacheReadsPrice: 0.3,
 	},
 	"claude-3-5-haiku-20241022": {
 		maxTokens: 8192,
 		contextWindow: 200_000,
 		supportsImages: false,
-		supportsComputerUse: true, // Haiku için bilgisayar kontrolünü etkinleştirdik
+		supportsComputerUse: true,
 		supportsPromptCache: true,
 		inputPrice: 1.0,
 		outputPrice: 5.0,
@@ -82,6 +82,7 @@ export const anthropicModels = {
 		maxTokens: 4096,
 		contextWindow: 200_000,
 		supportsImages: true,
+		supportsComputerUse: false,
 		supportsPromptCache: true,
 		inputPrice: 15.0,
 		outputPrice: 75.0,
@@ -92,13 +93,14 @@ export const anthropicModels = {
 		maxTokens: 4096,
 		contextWindow: 200_000,
 		supportsImages: true,
+		supportsComputerUse: false,
 		supportsPromptCache: true,
 		inputPrice: 0.25,
 		outputPrice: 1.25,
 		cacheWritesPrice: 0.3,
 		cacheReadsPrice: 0.03,
 	},
-} as const satisfies Record<string, ModelInfo> // as const assertion makes the object deeply readonly
+} as const satisfies Record<string, ModelInfo>
 
 // AWS Bedrock
 // https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html
@@ -118,7 +120,7 @@ export const bedrockModels = {
 		maxTokens: 8192,
 		contextWindow: 200_000,
 		supportsImages: false,
-		supportsComputerUse: true, // Bedrock Haiku için de bilgisayar kontrolünü etkinleştirdik
+		supportsComputerUse: true,
 		supportsPromptCache: false,
 		inputPrice: 1.0,
 		outputPrice: 5.0,
@@ -200,7 +202,7 @@ export const vertexModels = {
 		maxTokens: 8192,
 		contextWindow: 200_000,
 		supportsImages: false,
-		supportsComputerUse: true, // Vertex Haiku için de bilgisayar kontrolünü etkinleştirdik
+		supportsComputerUse: true,
 		supportsPromptCache: false,
 		inputPrice: 1.0,
 		outputPrice: 5.0,

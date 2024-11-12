@@ -1,0 +1,4 @@
+--require ts-node/register
+--timeout 30000
+--colors
+src/test/**/*.test.ts
